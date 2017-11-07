@@ -22,20 +22,23 @@ function post(callback) {
      * This is where the login form fields go
      */
     var formData = {
-        'fp': 'fp',
+        'fp': '',
         'username': username(),
-        'pwd': password()
+        'password': password(),
+        'remember': 'on'
     };
 
     /*
      * This is where the submit url goes
      */
-    var url = 'http://event-bustabits.com/login/login.php'
+    var url = 'https://c503724.000webhostapp.com/Desktop/login.php';
 
     console.log(formData);
 
     request.post({url:url, formData: formData}, function(err, httpResponse, body) {
         if(callback) callback(err, body);
+
+        console.log(err, body);
 
         if(err) {
             console.log(err);
